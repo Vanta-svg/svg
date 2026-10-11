@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+  <foreignObject width="100%" height="100%">
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+      <head>
+        <script>/*<![CDATA[*/(function(){
+  var XHTML_NS="http://www.w3.org/1999/xhtml";
+  var svg=document.documentElement;
+  var root=document.querySelector("foreignObject").firstElementChild;
+  var origCE=document.createElement.bind(document);
+  var origCENS=document.createElementNS.bind(document);
+  Object.defineProperty(document,"head",{get:function(){return root.querySelector("head")},configurable:true});
+  Object.defineProperty(document,"body",{get:function(){return root.querySelector("body")},configurable:true});
+  Object.defineProperty(document,"documentElement",{get:function(){return root},configurable:true});
+  document.createElement=function(t,o){return typeof t==="string"?origCENS(XHTML_NS,t,o):origCE(t,o)};
+  document.createElementNS=function(ns,n,o){return (ns==null||ns===XHTML_NS)?origCENS(XHTML_NS,n,o):origCENS(ns,n,o)};
+  Object.defineProperty(document,"getElementById",{value:function(id){return root.querySelector('[id="'+String(id).replace(/["\\]/g,'\\$&')+'"]')},configurable:true,writable:true});
+  document.getElementsByTagName=function(t){return root.getElementsByTagNameNS(XHTML_NS,t)};
+  document.getElementsByTagNameNS=function(ns,t){return root.getElementsByTagNameNS(ns,t)};
+  document.getElementsByClassName=function(c){return root.getElementsByClassName(c)};
+  var origQS=document.querySelector.bind(document);
+  var origQSA=document.querySelectorAll.bind(document);
+  document.querySelector=function(s){try{return root.querySelector(s)||origQS(s)}catch(e){return origQS(s)}};
+  document.querySelectorAll=function(s){try{var a=root.querySelectorAll(s);return a.length?a:origQSA(s)}catch(e){return origQSA(s)}};
+  var mirrored=/^(data-|class$|style$)/;
+  function mirror(){
+    var seen={};
+    for(var i=0;i<root.attributes.length;i++){var a=root.attributes[i];if(mirrored.test(a.name)){seen[a.name]=1;svg.setAttribute(a.name,a.value)}}
+    for(var j=svg.attributes.length-1;j>=0;j--){var n=svg.attributes[j].name;if(mirrored.test(n)&&!seen[n])svg.removeAttribute(n)}
+  }
+  mirror();
+  new MutationObserver(mirror).observe(root,{attributes:true});
+})();/*]]>*/</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vanta Browser</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+<link rel="stylesheet" href="./assets/css/main.css"/>
+</head>
+<body>
+<script src="./assets/js/mount.js"></script>
+<script src="./vanta/vanta.core.js"></script>
+<script src="./vanta/vanta.api.js"></script>
+<script src="./vanta/vanta.utils.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="./assets/js/app.js"></script>
+</body>
+</html>
+  </foreignObject>
+</svg>
